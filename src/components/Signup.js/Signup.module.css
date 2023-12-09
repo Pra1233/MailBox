@@ -1,0 +1,147 @@
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+  background-image: url("../../../public/signup.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+form {
+  height: 65%;
+  width: 32%;
+  background-color: white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+
+form * {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+form h3 {
+  margin-top: 0;
+  font-size: 25px;
+  font-weight: 200;
+  /* line-height: 42px;  */
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 530;
+}
+.inputLogin {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  border: 1px solid black;
+}
+::placeholder {
+  color: grey;
+}
+.loginbutton {
+  margin-top: 40px;
+  margin-left: 120px;
+  width: 40%;
+  background-color: #156eb8;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forgotPassword {
+  margin-top: 30px;
+  color: red;
+  padding: 15px 0;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.5rem;
+  margin-right: 20px;
+}
+
+.switchMode {
+  margin-top: 30px;
+  margin-left: 2.5rem;
+
+  color: #080710;
+  padding: 15px 0;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.5rem;
+}
+.forgot {
+  display: flex;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 88%;
+  left: 50%;
+  width: 39%;
+}
+.forgot button {
+  margin-right: 25px;
+  padding: 7px;
+  width: fit-content;
+}
+
+@media only screen and (max-width: 600px) {
+  form {
+    height: auto;
+    width: 90%;
+    padding: 20px;
+    transform: translate(-50%, -60%);
+  }
+
+  .loginbutton,
+  .forgotPassword,
+  .switchMode {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .forgot {
+    width: 90%;
+    left: 50%;
+    top: 0;
+
+    transform: translate(-50%, -20%);
+    position: relative;
+    margin: 5px;
+  }
+  .forgot button,
+  .switchMode {
+    margin-right: 0;
+    padding: 7px;
+    width: fit-content;
+    font-size: small;
+  }
+}
