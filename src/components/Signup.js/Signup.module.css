@@ -1,147 +1,94 @@
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+/* ... Your existing CSS ... */
+
 body {
-  background-color: white;
-  background-image: url("../../../public/signup.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-form {
-  height: 65%;
-  width: 32%;
-  background-color: white;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 45%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-
-form * {
+  margin: 0;
+  padding: 0;
   font-family: "Poppins", sans-serif;
-  color: black;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
+  background-color: #f4f4f4;
 }
-form h3 {
-  margin-top: 0;
-  font-size: 25px;
-  font-weight: 200;
-  /* line-height: 42px;  */
+.main {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h3 {
   text-align: center;
+  font-size: 24px;
+  color: #333333;
 }
 
 label {
   display: block;
-  margin-top: 16px;
+  margin-top: 15px;
   font-size: 16px;
-  font-weight: 530;
+  font-weight: 500;
+  color: #333333;
 }
+
 .inputLogin {
-  display: block;
-  height: 50px;
   width: 100%;
-  background-color: white;
+  height: 40px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 8px;
   margin-top: 8px;
-  font-size: 14px;
-  font-weight: 300;
-  border: 1px solid black;
+  font-size: 16px;
 }
-::placeholder {
-  color: grey;
-}
-.loginbutton {
-  margin-top: 40px;
-  margin-left: 120px;
-  width: 40%;
+
+button.loginbutton {
+  width: 100%;
+  height: 40px;
   background-color: #156eb8;
-  color: #080710;
-  padding: 15px 0;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 600;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
-.forgotPassword {
-  margin-top: 30px;
-  color: red;
-  padding: 15px 0;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 2.5rem;
-  margin-right: 20px;
-}
-
-.switchMode {
-  margin-top: 30px;
-  margin-left: 2.5rem;
-
-  color: #080710;
-  padding: 15px 0;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  height: 2.5rem;
-}
 .forgot {
   display: flex;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 88%;
-  left: 50%;
-  width: 39%;
-}
-.forgot button {
-  margin-right: 25px;
-  padding: 7px;
-  width: fit-content;
+  justify-content: space-between;
+  margin-top: 15px;
 }
 
+.switchMode,
+.forgotPassword {
+  background: none;
+  border: none;
+  color: #156eb8;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+/* Responsive styles */
 @media only screen and (max-width: 600px) {
   form {
-    height: auto;
     width: 90%;
-    padding: 20px;
-    transform: translate(-50%, -60%);
+    max-width: 350px;
   }
-
-  .loginbutton,
-  .forgotPassword,
-  .switchMode {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .forgot {
-    width: 90%;
-    left: 50%;
-    top: 0;
-
-    transform: translate(-50%, -20%);
-    position: relative;
-    margin: 5px;
-  }
-  .forgot button,
-  .switchMode {
-    margin-right: 0;
-    padding: 7px;
-    width: fit-content;
-    font-size: small;
+  .main {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 400px;
   }
 }

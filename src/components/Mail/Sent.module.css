@@ -1,0 +1,74 @@
+/* Sent.module.css */
+
+.tableContainer {
+  margin: 20px;
+  position: absolute;
+  top: 2%;
+  margin-left: 25vw;
+  width: 70%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+.td {
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  margin: 0;
+}
+
+.value {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px;
+  width: 2rem;
+  font-size: large;
+  font-weight: bold;
+  color: red;
+  border: 1px solid red;
+  margin-left: 0.5rem;
+}
+.notread::before {
+  content: "\2022"; /* Unicode character for a disc */
+  color: #ff0000; /* Change the color as needed */
+  font-size: 20px; /* Adjust the size as needed */
+  margin-right: 10px;
+}
+
+.read::before {
+  content: "\2022"; /* Unicode character for a disc */
+  color: green; /* Change the color as needed */
+  font-size: 20px; /* Adjust the size as needed */
+  margin-right: 10px;
+}

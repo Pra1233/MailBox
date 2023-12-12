@@ -1,25 +1,39 @@
 import React, { useRef, useState } from "react";
 import classes from "./Signup.module.css";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { authActions } from "../../store/auth";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signup = () => {
   const email = useRef();
   const password = useRef();
   const confirmPassword = useRef();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const islogin = useSelector((state) => state.auth.islogin);
+  // console.log(islogin, "islogin");
 
   const [login, setLogin] = useState(true);
 
   const postSignup = async (obj) => {
     console.log(obj, "obj");
     try {
-      const res = await axios.post("http://localhost:4000/user/adduser", obj);
+      const response = await axios.post(
+        "http://localhost:4000/user/adduser",
+        obj
+      );
 
-      console.log(res, "res");
+      // console.log(res, "res");
       //    console.log(res.data.message);
-      if (res.status === 201) {
-        alert(res.data.message);
+      if (response.status === 201) {
+        alert(response.data.message);
+        localStorage.setItem("token", response.data.token);
+        dispatch(authActions.login());
+        localStorage.setItem("email", obj.email);
+        history.push("/mailbox");
       } else {
-        throw new Error(res.data.e);
+        throw new Error(response.data.e);
       }
     } catch (e) {
       console.log(e);
@@ -34,6 +48,9 @@ const Signup = () => {
       );
       alert(response.data.message);
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("email", obj.email);
+      dispatch(authActions.login());
+      history.push("/mailbox");
     } catch (e) {
       console.log(e);
     }
@@ -60,7 +77,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className={classes.main}>
       <form>
         <h3>{login ? "Login Here" : "Signup"}</h3>
 
@@ -83,15 +100,16 @@ const Signup = () => {
           className={classes.inputLogin}
           required
         />
-        <label htmlFor="password">Confirm Password</label>
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          ref={confirmPassword}
-          className={classes.inputLogin}
-          required
-        />
-
+        {!islogin && <label htmlFor="password">Confirm Password</label>}
+        {!islogin && (
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            ref={confirmPassword}
+            className={classes.inputLogin}
+            required
+          />
+        )}
         <button onClick={submitHandler} className={classes.loginbutton}>
           Submit
         </button>

@@ -4,6 +4,8 @@ const sequelize = require("./util/database");
 
 //routes
 const loginRoutes = require("./routes/LoginRoutes");
+const mailRoutes = require("./routes/MailRoutes");
+
 const corsOptions = {
   origin: "http://localhost:3000",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
@@ -18,9 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 app.use("/user", loginRoutes);
+app.use("/message", mailRoutes);
 
 sequelize
   .sync()
+  // .sync({ force: "true" })
   .then(() => {
     app.listen(4000);
     console.log("Started");

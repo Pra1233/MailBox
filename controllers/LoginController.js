@@ -17,8 +17,12 @@ const postSignup = async (req, res) => {
         console.log("Unable to Create new User");
         return res.status(404).json({ e: "Unable To Create New User" });
       }
-      await User.create({ email, password: hash });
-      res.status(201).json({ message: "User Created Successfully" });
+      const user = await User.create({ email, password: hash });
+      // console.log("first", user);
+      res.status(201).json({
+        message: "User Created Successfully",
+        token: generateToken(user.id, user.email),
+      });
     });
   } catch (e) {
     console.log(e);
