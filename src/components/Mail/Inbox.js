@@ -64,23 +64,21 @@ const Inbox = () => {
             <th>Subject</th>
             <th>Message</th>
             <th>From</th>
-            <th>Action</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {inboxMail &&
             inboxMail.map((e) => (
-              <tr
-                key={e.id}
-                className={!e.read ? classes.notread : classes.read}
-              >
+              <tr key={e.id}>
+                <td className={!e.read ? classes.notread : classes.read}></td>
                 <td onClick={() => sentDataHandler(e)} className={classes.td}>
                   {e.subject}
                 </td>
                 <td>{e.message}</td>
                 <td>{e.sender}</td>
                 <td>
-                  <button onClick={() => deleteInboxData(e.id)}>x</button>
+                  <button onClick={() => deleteInboxData(e.id)}>X</button>
                 </td>
               </tr>
             ))}

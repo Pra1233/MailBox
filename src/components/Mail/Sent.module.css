@@ -60,15 +60,12 @@ button {
   margin-left: 0.5rem;
 }
 .notread::before {
-  content: "\2022"; /* Unicode character for a disc */
-  color: #ff0000; /* Change the color as needed */
-  font-size: 20px; /* Adjust the size as needed */
-  margin-right: 10px;
+  content: "\2022";
+  color: green;
+  font-size: 20px;
 }
-
 .read::before {
   content: "\2022"; /* Unicode character for a disc */
-  color: green; /* Change the color as needed */
-  font-size: 20px; /* Adjust the size as needed */
-  margin-right: 10px;
+  color: #ddd;
+  font-size: 20px;
 }

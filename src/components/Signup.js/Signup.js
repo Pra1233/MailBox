@@ -11,8 +11,6 @@ const Signup = () => {
   const confirmPassword = useRef();
   const history = useHistory();
   const dispatch = useDispatch();
-  const islogin = useSelector((state) => state.auth.islogin);
-  // console.log(islogin, "islogin");
 
   const [login, setLogin] = useState(true);
 
@@ -100,16 +98,16 @@ const Signup = () => {
           className={classes.inputLogin}
           required
         />
-        {!islogin && <label htmlFor="password">Confirm Password</label>}
-        {!islogin && (
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            ref={confirmPassword}
-            className={classes.inputLogin}
-            required
-          />
-        )}
+        <label htmlFor="password">Confirm Password</label>
+
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          ref={confirmPassword}
+          className={classes.inputLogin}
+          required
+        />
+
         <button onClick={submitHandler} className={classes.loginbutton}>
           Submit
         </button>

@@ -76,6 +76,7 @@ button.loginbutton {
   cursor: pointer;
   font-size: 14px;
   text-decoration: underline;
+  width: fit-content;
 }
 
 /* Responsive styles */

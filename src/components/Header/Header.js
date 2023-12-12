@@ -46,7 +46,11 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    getInboxMail();
+    const interval = setInterval(() => {
+      getInboxMail();
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -57,9 +61,8 @@ const Header = () => {
         className={classes.link}
         // onClick={getInboxMail}
       >
-        Inbox {count}
+        Inbox <span className={classes.span}>{count > 0 ? count : ""}</span>
       </NavLink>
-
       <NavLink
         to="/compose"
         activeClassName={classes.linke}
@@ -75,7 +78,14 @@ const Header = () => {
       >
         Sent Mail
       </NavLink>
-      <button onClick={logoutHandler}>Logout</button>
+      <NavLink
+        to="/login"
+        onClick={logoutHandler}
+        activeClassName={classes.linke}
+        className={classes.link}
+      >
+        Logout
+      </NavLink>
     </div>
   );
 };
